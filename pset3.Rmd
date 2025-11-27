@@ -104,6 +104,26 @@ a.  Write down the Lagrangian for this constrained minimization problem. Please 
 
 b.  Take the first derivative of the Lagrangian with respect to $\beta$ and set it equal to $\mathbf{0}$ to get the first order condition. (If you're feeling retro, you can use the \href{https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf}{Matrix Cookbook} to help you.) Solve for $\hat{\beta}$.
 
+```{=latex}
+\begin{answerbox}
+Solving the derivative step-by-step:
+    \begin{itemize}
+        \item Derivative of $(\mathbf{y} - \mathbf{X}\boldsymbol{\beta})^T(\mathbf{y} - \mathbf{X}\boldsymbol{\beta}) = \mathbf{y}^T \mathbf{y} - 2\mathbf{y}^TX\boldsymbol{\beta} + \boldsymbol{\beta}^T X^T X \boldsymbol{\beta}$
+        \[
+        \frac{d}{d\beta}(\mathbf{y}^T \mathbf{y} - 2\mathbf{y}^TX\boldsymbol{\beta} + \boldsymbol{\beta}^T X^T X \boldsymbol{\beta}) = - 2X^T\mathbf{y} + 2 X^T X \boldsymbol{\beta} 
+        \]
+        \item Derivative of $\lambda (\boldsymbol{\beta^T\beta}-s)$
+        \[
+        \frac{d}{d\beta}\lambda (\boldsymbol{\beta^T\beta}-s) = \lambda 2 \boldsymbol{\beta}
+        \]
+        \item Therefore:
+        \[
+        \frac{d\mathcal{L}(\boldsymbol{\beta}, \lambda)}{d\beta} = - 2X^T\mathbf{y} + 2 X^T X \boldsymbol{\beta} + \lambda 2 \boldsymbol{\beta}
+        \]
+    \end{itemize}
+\end{answerbox}
+```
+
 c.  Compare your answer to the standard linear regression estimator. Under what condition are they the same?
 
 d.  Using the same `BostonHousing` dataset and the same set of variables from the lab, compute the ridge regression $\hat{\beta}$ with the equation you found in part (b) above. First standardize your $\mathbf{X}$ matrix using the `scale()` function in `R`. Use the `glmnet()` function in the `glmnet` package to check your answer.[^6]
