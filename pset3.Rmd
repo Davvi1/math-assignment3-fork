@@ -4,6 +4,7 @@ output: pdf_document
 author: "Sofia Breganni, David Moth, Adarsh Tripathi" 
 date: "2025-24-11"
 header-includes:
+  - \usepackage{amsmath}
   - \usepackage{tcolorbox}
   - \newtcolorbox{answerbox}{colback=gray!15, colframe=black!50, arc=2mm, boxrule=0.5pt, left=3mm, right=3mm, top=3mm, bottom=3mm}
 ---
@@ -121,6 +122,20 @@ Solving the derivative step-by-step:
         \frac{d\mathcal{L}(\boldsymbol{\beta}, \lambda)}{d\beta} = - 2X^T\mathbf{y} + 2 X^T X \boldsymbol{\beta} + \lambda 2 \boldsymbol{\beta}
         \]
     \end{itemize}
+    
+    
+Setting the derivative = 0 and solving for $\hat{\beta}$:
+    \begin{align*}
+        - 2X^T\mathbf{y} + 2 X^T X \boldsymbol{\beta} + \lambda 2 \boldsymbol{\beta} 
+        &= \mathbf{0}\\
+        2 X^T X \boldsymbol{\beta} + \lambda 2 \boldsymbol{\beta} 
+        &= 2X^T\mathbf{y}\\
+        (X^T X + \lambda I) \boldsymbol{\beta}
+        &= X^T\mathbf{y}\\
+        \hat{\boldsymbol{\beta}}
+        &= (X^T X + \lambda I)^{-1}(X^T\mathbf{y})
+    \end{align*}
+    
 \end{answerbox}
 ```
 
